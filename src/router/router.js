@@ -10,8 +10,9 @@ export default {
         { path: "/", redirect: "/home" },
         { name: "h", path: "/home", component: HomeComponent },
 
-        // 登陆注册
+        // 登陆
         { name: "l", path: "/login", component: LoginComponent },
+        //注册
         { name: "r", path: "/register", component: RegisterComponent },
     ]
 };

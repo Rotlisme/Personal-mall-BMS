@@ -1,24 +1,14 @@
 <template>
-    <main>
-        <h1>{{title}}</h1>
-        <router-view></router-view>
-    </main>
+  <main>
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
 // 导出组件配置
-export default {
-  data() {
-    return {
-      title: "Hello World!"
-    };
-  }
-};
+export default {};
 </script>
 
 <style scoped>
-h1 {
-  font-size: 30px;
-  color: red;
-}
+
 </style>
