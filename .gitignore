@@ -1,0 +1,7 @@
+#忽略的文件
+node_modules
+dist 
+*.
+#不忽略的文件
+!.gitignore
+!.bablerc
