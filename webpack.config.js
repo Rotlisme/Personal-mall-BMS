@@ -21,7 +21,7 @@ module.exports = {
             template: './src/index.html',        // 要处理的html
             filename: 'index.html',                 // 处理后的html名称
             inject: 'body',                               // 自动注入js到什么地方
-            title:'个人微商'
+            title: '个人微商'
         }),
     ],
 
@@ -43,9 +43,9 @@ module.exports = {
                 use: ['style-loader', 'css-loader', 'less-loader']
             },
 
-            // 打包url文件
+            // 打包引用的静态资源文件
             {
-                test: /\.(png|jpg|gif|jpeg|svg)$/,
+                test: /\.(png|jpg|gif|jpeg|svg|woff|ttf)$/,
                 use: [
                     // 指定小于10kb的图片才转为base64编码打包
                     { loader: 'url-loader', options: { limit: 10240 } }

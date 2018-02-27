@@ -1,0 +1,21 @@
+html,
+body,
+main {
+  min-height: 100%;
+  height: 100%;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+.aside {
+  overflow: initial;
+}
+.aside .el-menu {
+  border-right: 0;
+}
+.aside .el-menu-item-group__title {
+  padding: 0;
+  height: 0;
+}
+/*# sourceMappingURL=./index.css.map */
