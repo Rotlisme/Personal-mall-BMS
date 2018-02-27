@@ -5,12 +5,12 @@ const htmlWebapckPlugin = require('html-webpack-plugin');
 module.exports = {
 
     // 入口
-    entry: path.resolve(__dirname, './src/js/main.js'),
+    entry: path.resolve(__dirname, './src/main.js'),
 
     // 输出
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'bundle_[chunkhash:8].js'
+        filename: 'bundle.js'
     },
 
     //  插件配置
