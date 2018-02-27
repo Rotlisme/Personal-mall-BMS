@@ -1,12 +1,18 @@
 // 1.1 导入第三方库
 import Vue from 'Vue';
 import VueRouter from 'vue-router';
+import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import 'normalize.css';
 
 // 1.2 启动Vue插件
 Vue.use(VueRouter);
+Vue.use(Vuex);
 Vue.use(ElementUI);
+
+// 1.3 导入全局样式
+import './less/index.less';
 
 // 2.1 导入根组件
 import AppComponent from './component/App.vue';
