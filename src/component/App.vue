@@ -5,7 +5,7 @@
 </template>
 
 <script>
-// 导出组件配置 test
+// 导出组件配置 test2
 export default {};
 </script>
 
