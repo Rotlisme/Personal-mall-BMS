@@ -21,7 +21,8 @@ module.exports = {
             template: './src/index.html',        // 要处理的html
             filename: 'index.html',                 // 处理后的html名称
             inject: 'body',                               // 自动注入js到什么地方
-            title:'个人微商'
+            title:'个人微商',
+            favicon: './favicon.ico'
         }),
     ],
 

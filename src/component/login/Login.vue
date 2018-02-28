@@ -14,7 +14,7 @@
                 <!-- 用户名: 表单效验与重置, 需要设置prop属性为表单字段 -->
                 <el-form-item label="用户名" prop="uname">
                     <!-- 用户名输入框: 这里的v-model记得关联表单字段 -->
-                    <el-input type="password" v-model="user.uname" auto-complete="off"></el-input>
+                    <el-input type="text" v-model="user.uname" auto-complete="off"></el-input>
                 </el-form-item>
 
                 <!-- 密码: 表单效验与重置, 需要设置prop属性为表单字段 -->
