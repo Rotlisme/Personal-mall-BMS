@@ -21,40 +21,49 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                username: 'admin'
-            }
-        },
+export default {
+  data() {
+    return {
+      username: "admin"
+    };
+  },
 
-        methods: {
-            // 注销
-            logout() {
-                // 注销成功后
-                // 1 清除localStorage存储的用户信息
-                // 2 跳转到登陆页
-                this.$http.get(this.$api.logout)
-                    .then(rsp => {
-                        localStorage.removeItem('user');
-                        this.$router.push('/login');
-                    });
-            },
+  methods: {
+    // 注销
+    logout() {
+      // 注销成功后
+      // 1 清除localStorage存储的用户信息
+      // 2 跳转到登陆页
+      this.$http.get(this.$api.logout).then(rsp => {
+        localStorage.removeItem("user");
+        this.$router.push("/login");
+      });
+    },
 
-            // 下拉菜单控制器
-            handleCommand(command) {
-                switch (command) {
-                    case 'logout':
-                        this.logout();
-                        break;
-                }
-            }
-        }
+    // 下拉菜单控制器
+    handleCommand(command) {
+      switch (command) {
+        case "logout":
+          this.$confirm("您确定要退出登录", "退出提示", {
+            confirmButtonText: "确定",
+            cancelButtonText: "取消",
+            type: "warning"
+          })
+            .then(() => {
+                this.logout();
+            })
+            .catch(() => {
+              
+            });
+          break;
+      }
     }
+  }
+};
 </script>
 
 <style scoped lang="less">
-    .header {
-        text-align: right;
-    }
+.header {
+  text-align: right;
+}
 </style>

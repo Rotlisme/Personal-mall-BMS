@@ -6,7 +6,9 @@
 
 <script>
 // 导出组件配置
-export default {};
+export default {
+  
+};
 </script>
 
 <style scoped>
