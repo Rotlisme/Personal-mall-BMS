@@ -97,6 +97,7 @@ export default {
   // logo居中显示
   &_logo {
     text-align: center;
+    padding: 15px;
   }
 
   // 去掉导航展开时右边的1像素边框
