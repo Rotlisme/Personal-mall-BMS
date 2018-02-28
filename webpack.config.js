@@ -52,12 +52,6 @@ module.exports = {
                 ]
             },
 
-            // 转换特殊语法编写的js文件
-            {
-                test: /\.js$/,
-                use: ['babel-loader'],
-                exclude: /node_modules/  // 如果项目引入了node-modules的东西,不转换它们
-            },
 
             // 解析vue文件
             {

@@ -15,7 +15,7 @@ Vue.use(ElementUI);
 import './less/index.less';
 
 // 2.1 导入根组件
-import AppComponent from './component/App.vue';
+import App from './component/App.vue';
 
 // 2.2 导入路由配置
 import routerConfig from './router/router.js';
@@ -30,7 +30,7 @@ Vue.prototype.$api = api;
 new Vue({
     el: '#app',
     render(createNode) {
-        return createNode(AppComponent);
+        return createNode(App);
     },
     router: new VueRouter(routerConfig)
 });

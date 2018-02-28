@@ -2,9 +2,9 @@
     <div class="aside">
 
         <!-- logo -->
-        <!-- <div class="aside_logo">
-            <img src="../../../img/logo.png" alt="logo">
-        </div> -->
+        <div class="aside_logo">
+                <img src="../../../assets/images/logo.svg" alt="logo">
+        </div>
 
         <!-- nav: default-active属性用来设置默认打开的菜单 -->
         <el-menu default-active="2" class="aside_menu"

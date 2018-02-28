@@ -1,34 +1,38 @@
 <template>
+  <el-container>
+
+    <!-- 左侧 -->
+    <el-aside width="200px">
+      <!-- 左侧导航, 公共部分 -->
+      <app-aside></app-aside>
+    </el-aside>
+
+    <!-- 右侧 -->
     <el-container>
+      <!-- 右侧头部, 公共部分 -->
+      <el-header>
+        <app-header></app-header>
+      </el-header>
 
-        <!-- 左侧 -->
-        <el-aside width="200px">
-            <!-- 左侧导航, 公共部分 -->
-            <app-aside></app-aside>
-        </el-aside>
-
-        <!-- 右侧 -->
-        <el-container>
-            <!-- 右侧头部, 公共部分 -->
-            <el-header>Header</el-header>
-
-            <!-- 右侧主体, 变化部分, 将来要通过子路由控制 -->
-            <el-main>Main</el-main>
-        </el-container>
-
+      <!-- 右侧主体, 变化部分, 将来要通过子路由控制 -->
+      <el-main>
+        <router-view></router-view>
+      </el-main>
     </el-container>
+
+  </el-container>
 </template>
 
 <script>
 // 导入公共的左侧与头部组件, 需要注册才能使用
-import AsideComponent from "./frame/Aside.vue";
-import HeaderComponent from "./frame/Header.vue";
+import Aside from "./subCom/Aside.vue";
+import Header from "./subCom/Header.vue";
 
 export default {
   // 注册子组件, key为组件名称(将=使用时的标签名称), value为未注册的组件
   components: {
-    "app-aside": AsideComponent,
-    "app-header": HeaderComponent
+    "app-aside": Aside,
+    "app-header": Header
   }
 };
 </script>
