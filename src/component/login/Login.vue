@@ -82,7 +82,7 @@ export default {
             type: "success",
             duration: 800
           });
-          localStorage.setItem("user", JSON.stringify(message)); // 需要转换为字符串存储
+          localStorage.setItem("user", message.uname); // 需要转换为字符串存储
           this.$router.push("/admin"); //这里也可以使用路由规则名称{name:'/admin'}
         } else {
           this.$alert(message);

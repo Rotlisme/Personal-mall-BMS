@@ -1,30 +1,30 @@
 <template>
-    <div class="header">
-        <!-- 下拉菜单: command属性用来监听菜单点击事件, 事件回调里会收到被点击菜单的标识符 -->
-        <el-dropdown @command="handleCommand">
+  <div class="header">
+    <!-- 下拉菜单: command属性用来监听菜单点击事件, 事件回调里会收到被点击菜单的标识符 -->
+    <el-dropdown @command="handleCommand">
 
-            <!-- 菜单标题 -->
-            <span class="el-dropdown-link">
-                <span>你好, {{ username }}</span>
-                <i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
+      <!-- 菜单标题 -->
+      <span class="el-dropdown-link">
+        <span>你好, {{ username }}</span>
+        <i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
 
-            <!-- 菜单列表 -->
-            <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>修改密码</el-dropdown-item>
-                <!-- 记得设置command指令值, 不然无法区分点击的是那个菜单 -->
-                <el-dropdown-item command="logout">注销</el-dropdown-item>
-            </el-dropdown-menu>
+      <!-- 菜单列表 -->
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>修改密码</el-dropdown-item>
+        <!-- 记得设置command指令值, 不然无法区分点击的是那个菜单 -->
+        <el-dropdown-item command="logout">注销</el-dropdown-item>
+      </el-dropdown-menu>
 
-        </el-dropdown>
-    </div>
+    </el-dropdown>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      username: "admin"
+      username: localStorage.getItem("user")
     };
   },
 
@@ -50,11 +50,9 @@ export default {
             type: "warning"
           })
             .then(() => {
-                this.logout();
+              this.logout();
             })
-            .catch(() => {
-              
-            });
+            .catch(() => {});
           break;
       }
     }
