@@ -1,5 +1,5 @@
 // 1.1 导入第三方库
-import Vue from 'Vue';
+import Vue from 'vue';
 import VueRouter from 'vue-router';
 // 导入受路由控制的组件
 import Login from '../component/login/Login.vue';

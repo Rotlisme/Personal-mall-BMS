@@ -2,7 +2,7 @@
   <el-container>
 
     <!-- 左侧 -->
-    <el-aside width="200px">
+    <el-aside width="width">
       <!-- 左侧导航, 公共部分 -->
       <app-aside></app-aside>
     </el-aside>
@@ -33,6 +33,11 @@ export default {
   components: {
     "app-aside": Aside,
     "app-header": Header
+  },
+  computed: {
+    width() {
+      return this.$store.getters.width + "px";
+    }
   }
 };
 </script>

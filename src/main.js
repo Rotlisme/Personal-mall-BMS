@@ -1,10 +1,10 @@
 // 1.1 导入第三方库
-import Vue from 'Vue';
+import Vue from 'vue';
 import Vuex from 'vuex';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css';
-
+import { store } from './vuex/store.js';
 // 1.2 启动Vue插件
 Vue.use(Vuex);
 Vue.use(ElementUI);
@@ -31,6 +31,7 @@ Vue.prototype.$api = api;
 new Vue({
     el: '#app',
     router,
+    store,
     render(createNode) {
         return createNode(App);
     }
