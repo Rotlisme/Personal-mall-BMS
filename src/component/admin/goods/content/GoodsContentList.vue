@@ -14,23 +14,29 @@
     <section class="main_btns">
       <el-row :gutter="20">
         <el-col :span='20'>
-          <el-button size="small" plain icon="el-icon-check">全选</el-button>
-          <el-button size="small" plain icon="el-icon-plus" @click="$router.push({name: 'gcta'})">新增</el-button>
-          <el-button size="small" plain icon="el-icon-delete">删除</el-button>
+          <div class="btns">
+            <el-button size="small" plain icon="el-icon-check">全选</el-button>
+            <el-button size="small" plain icon="el-icon-plus" @click="$router.push({name: 'gcta'})">新增</el-button>
+            <el-button size="small" plain icon="el-icon-delete">删除</el-button>
+          </div>
         </el-col>
         <el-col :span='4'>
-          <el-input v-model="query.searchvalue" @blur="getGoodsList" size="small" prefix-icon="el-icon-search" placeholder="请输入内容"></el-input>
+          <el-input v-model="query.searchvalue" @blur="getGoodsList" prefix-icon="el-icon-search" placeholder="请输入内容"></el-input>
         </el-col>
       </el-row>
     </section>
     <!-- Table表格: data属性为要渲染的列表数据 -->
     <section class="main_tbl">
-      <el-table :data="goodsList" ref="multipleTable" tooltip-effect="dark" height="400" style="width: 100%; line-height: 18px; text-align: center;" border>
+      <el-table :data="goodsList" ref="multipleTable" tooltip-effect="dark" height="373" style="width: 100%; line-height: 18px; text-align: center;" border>
         <!-- 多选框 -->
         <el-table-column type="selection" width="55">
         </el-table-column>
         <!-- 商品数据列表: prop属性为列表数据里的字段名称 -->
-        <el-table-column label="标题" prop="title"></el-table-column>
+        <el-table-column label="标题">
+          <template slot-scope="scope">
+            <router-link style="color: #409eff; font-size:12px" :to="{ name: 'goodsDetail' }">{{ scope.row.title }}</router-link>
+          </template>
+        </el-table-column>
         <el-table-column label="类别" prop="categoryname" width="100"></el-table-column>
         <el-table-column label="库存" prop="stock_quantity" width="100"></el-table-column>
         <el-table-column label="市场价" prop="market_price" width="100"></el-table-column>
@@ -48,7 +54,9 @@
         <!-- 编辑商品 -->
         <el-table-column label="操作" width="100">
           <template slot-scope="scope">
-            <router-link :to="{name:'gcte', params: {id: scope.row.id}}">编辑</router-link>
+            <router-link :to="{name:'gcte', params: {id: scope.row.id}}">
+              <el-button type="info" icon="el-icon-edit" size="mini"></el-button>
+            </router-link>
           </template>
         </el-table-column>
       </el-table>
@@ -82,9 +90,9 @@ export default {
   methods: {
     // 获取商品列表数据
     getGoodsList() {
-      this.$http.get(this.$api.gsList, { params: this.query }).then(rsp => {
-        this.goodsList = rsp.data.message;
-        this.totalcount = rsp.data.totalcount;
+      this.$http.get(this.$api.gsList, { params: this.query }).then(res => {
+        this.goodsList = res.data.message;
+        this.totalcount = res.data.totalcount;
       });
     },
 
@@ -115,10 +123,15 @@ export default {
 
 .main_btns {
   margin: 10px 0 5px;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  .btns {
+    line-height: 40px;
+  }
 }
 
-
+.pagination {
+  margin-top: 25px;
+}
 </style>
