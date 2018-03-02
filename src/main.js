@@ -32,7 +32,5 @@ new Vue({
     el: '#app',
     router,
     store,
-    render(createNode) {
-        return createNode(App);
-    }
+    render: createNode => createNode(App)
 });

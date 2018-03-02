@@ -17,4 +17,7 @@ a {
   padding: 0;
   height: 0;
 }
+.goods-list .main_tbl .el-table th {
+  text-align: center;
+}
 /*# sourceMappingURL=./index.css.map */

@@ -120,7 +120,5 @@ export default {
   border-radius: 10px;
 }
 
-.main_tbl {
-  text-align: center;
-}
+
 </style>

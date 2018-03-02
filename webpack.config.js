@@ -70,11 +70,11 @@ module.exports = {
     },
 
     // webpack-dev-server工具配置
-    devServer: {
-        contentBase: 'dist',
-        port: 7777,
-        open: true,
-        inline: true,
-        progress: true,
-    }
+    // devServer: {
+    //     contentBase: 'dist',
+    //     port: 7777,
+    //     open: true,
+    //     inline: true,
+    //     progress: true,
+    // }
 };

@@ -24,7 +24,7 @@ export const store = new Vuex.Store({
             console.log(state.isCollapse);
             return state.isCollapse;
         },
-        width() {
+        width(state) {
             return state.width;
         }
     }
