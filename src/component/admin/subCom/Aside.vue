@@ -14,7 +14,7 @@
 
         <!-- nav_title -->
         <template slot="title">
-          <i class="el-icon-menu"></i>
+          <i :class="item.icon"></i>
           <span>{{ item.title }}</span>
         </template>
 
@@ -41,6 +41,7 @@ export default {
       menu: [
         {
           title: "学员问题",
+          icon: "el-icon-question",
           submenu: [
             { text: "内容管理", path: "/admin/student/content/list" },
             { text: "类别管理", path: "/admin/student/category/list" },
@@ -49,6 +50,7 @@ export default {
         },
         {
           title: "前端技术",
+          icon: "el-icon-more",
           submenu: [
             { text: "内容管理", path: "/admin/web/content/list" },
             { text: "类别管理", path: "/admin/web/category/list" },
@@ -57,6 +59,7 @@ export default {
         },
         {
           title: "难点答疑",
+          icon: "el-icon-service",
           submenu: [
             { text: "内容管理", path: "/admin/difficulty/content/list" },
             { text: "类别管理", path: "/admin/difficulty/category/list" },
@@ -65,6 +68,7 @@ export default {
         },
         {
           title: "资源下载",
+          icon: "el-icon-download",
           submenu: [
             { text: "内容管理", path: "/admin/assets/content/list" },
             { text: "类别管理", path: "/admin/assets/category/list" },
@@ -73,6 +77,7 @@ export default {
         },
         {
           title: "商品管理",
+          icon: "el-icon-goods",
           submenu: [
             { text: "内容管理", path: "/admin/goods/content/list" },
             { text: "类别管理", path: "/admin/goods/category/list" },
@@ -81,6 +86,7 @@ export default {
         },
         {
           title: "订单管理",
+          icon: "el-icon-tickets",
           submenu: [{ text: "订单列表", path: "/admin/order/content/list" }]
         }
       ]

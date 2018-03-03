@@ -15,9 +15,9 @@
       <el-row :gutter="20">
         <el-col :span='20'>
           <div class="btns">
-            <el-button size="small" plain icon="el-icon-check">全选</el-button>
+            <el-button size="small" plain icon="el-icon-check" @click="selectAll">全选</el-button>
             <el-button size="small" plain icon="el-icon-plus" @click="$router.push({name: 'gcta'})">新增</el-button>
-            <el-button size="small" plain icon="el-icon-delete">删除</el-button>
+            <el-button size="small" plain icon="el-icon-delete" @click="del">删除</el-button>
           </div>
         </el-col>
         <el-col :span='4'>
@@ -27,14 +27,19 @@
     </section>
     <!-- Table表格: data属性为要渲染的列表数据 -->
     <section class="main_tbl">
-      <el-table :data="goodsList" ref="multipleTable" tooltip-effect="dark" height="373" style="width: 100%; line-height: 18px; text-align: center;" border>
+      <el-table :data="goodsList" ref="multipleTable" tooltip-effect="dark" height="373" style="width: 100%; line-height: 18px; text-align: center;" border @selection-change="change">
         <!-- 多选框 -->
         <el-table-column type="selection" width="55">
         </el-table-column>
         <!-- 商品数据列表: prop属性为列表数据里的字段名称 -->
         <el-table-column label="标题">
           <template slot-scope="scope">
-            <router-link style="color: #409eff; font-size:12px" :to="{ name: 'goodsDetail' }">{{ scope.row.title }}</router-link>
+            <el-tooltip class="item" effect="dark" content="" placement="right">
+              <router-link style="color: #409eff; font-size:12px" :to="{ path: `/admin/goods/getgoodsmodel/${scope.row.id}` }">{{ scope.row.title }}</router-link>
+              <div slot="content">
+                <img :src="scope.row.imgurl" alt="图片提示" style="width:200px">
+              </div>
+            </el-tooltip>
           </template>
         </el-table-column>
         <el-table-column label="类别" prop="categoryname" width="100"></el-table-column>
@@ -83,7 +88,9 @@ export default {
       // 商品列表数据
       goodsList: [],
       // 数据总量
-      totalcount: 0
+      totalcount: 0,
+      //被选中商品的数组
+      selectedGoodsList: []
     };
   },
 
@@ -94,6 +101,34 @@ export default {
         this.goodsList = res.data.message;
         this.totalcount = res.data.totalcount;
       });
+    },
+    //当商品被勾选发生改变的事件
+    change(selection) {
+      this.selectedGoodsList = selection;
+    },
+
+    //删除商品
+    del() {
+      let delIDs = this.selectedGoodsList.map(v => v.id);
+      this.$confirm("您确定要删除该商品", "删除商品提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          this.$http.get(this.$api.gsDel + delIDs).then(res => {
+            if (res.data.status == 0) {
+              this.$alert(res.data.message);
+              this.getGoodsList();
+            }
+          });
+        })
+        .catch(() => {});
+    },
+
+    //全选按钮事件
+    selectAll() {
+      document.querySelector(".el-checkbox__original").click();
     },
 
     // 修改当前页
@@ -133,5 +168,10 @@ export default {
 
 .pagination {
   margin-top: 25px;
+}
+
+[class^="el-icon"].active {
+  color: rgb(26, 24, 24);
+  font-weight: 600;
 }
 </style>

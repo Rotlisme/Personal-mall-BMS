@@ -7,6 +7,9 @@ a {
   color: #fff;
   text-decoration: none;
 }
+a:hover {
+  color: #f60;
+}
 .aside {
   overflow: initial;
 }

@@ -7,6 +7,7 @@ import GoodsCategoryAddComponent from '../component/admin/goods/category/GoodsCa
 import GoodsCategoryEditComponent from '../component/admin/goods/category/GoodsCategoryEdit.vue';
 import GoodsCommentListComponent from '../component/admin/goods/comment/GoodsCommentList.vue';
 import GoodsCommentEditComponent from '../component/admin/goods/comment/GoodsCommentEdit.vue';
+import GoodsDetailListComponent from '../component/admin/goods/detail/Detail.vue';
 
 module.exports = [
     // 商品管理
@@ -22,4 +23,7 @@ module.exports = [
     // 商品评论管理
     { name: "gcml", path: "goods/comment/list", component: GoodsCommentListComponent },
     { name: "gcme", path: "goods/comment/edit", component: GoodsCommentEditComponent },
+
+    //商品详情
+    { name: "gdlt", path: "goods/getgoodsmodel/:id", component: GoodsDetailListComponent }
 ];
