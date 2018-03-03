@@ -13,7 +13,7 @@ module.exports = [
     // 商品管理
     { name: "gctl", path: "goods/content/list", component: GoodsContentListComponent },
     { name: "gcta", path: "goods/content/add", component: GoodsContentAddComponent },
-    { name: "gcte", path: "goods/content/edit", component: GoodsContentEditComponent },
+    { name: "gcte", path: "goods/content/edit/:id", component: GoodsContentEditComponent },
 
     // 商品分类管理
     { name: "gcgl", path: "goods/category/list", component: GoodsCategoryListComponent },

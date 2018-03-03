@@ -35,7 +35,7 @@
         <el-table-column label="标题">
           <template slot-scope="scope">
             <el-tooltip class="item" effect="dark" content="" placement="right">
-              <router-link style="color: #409eff; font-size:12px" :to="{ path: `/admin/goods/getgoodsmodel/${scope.row.id}` }">{{ scope.row.title }}</router-link>
+              <router-link style="color: #409eff; font-size:12px" :open-delay="1500" :to="{ path: `/admin/goods/getgoodsmodel/${scope.row.id}` }">{{ scope.row.title }}</router-link>
               <div slot="content">
                 <img :src="scope.row.imgurl" alt="图片提示" style="width:200px">
               </div>
@@ -69,7 +69,7 @@
     <section class="pagination">
       <!-- 分页: current-page展示当前页, totle用来设置数据总量然后动态计算分页  -->
       <!-- 分页: current-change监听页变化, size-change监听每页数据变量  -->
-      <el-pagination :current-page="query.pageIndex" :page-sizes="[10, 20, 30, 40]" :page-size="10" @current-change="handleCurrentChange" @size-change="handleSizeChange" :total="totalcount" layout="total, sizes, prev, pager, next, jumper" background>
+      <el-pagination :current-page="query.pageIndex" :page-sizes="[6, 12, 18, 24]" :page-size="6" @current-change="handleCurrentChange" @size-change="handleSizeChange" :total="totalcount" layout="total, sizes, prev, pager, next, jumper" background>
       </el-pagination>
     </section>
   </div>
@@ -82,7 +82,7 @@ export default {
       // 商品列表接口所需的查询字符串
       query: {
         pageIndex: 1,
-        pageSize: 10,
+        pageSize: 6,
         searchvalue: ""
       },
       // 商品列表数据
