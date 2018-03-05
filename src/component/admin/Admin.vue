@@ -1,9 +1,8 @@
 <template>
   <el-container>
-
     <!-- 左侧 -->
+    <!-- 左侧导航, 公共部分 -->
     <el-aside width="width">
-      <!-- 左侧导航, 公共部分 -->
       <app-aside></app-aside>
     </el-aside>
 
@@ -19,7 +18,6 @@
         <router-view></router-view>
       </el-main>
     </el-container>
-
   </el-container>
 </template>
 

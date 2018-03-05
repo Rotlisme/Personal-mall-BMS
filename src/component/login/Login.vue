@@ -83,7 +83,9 @@ export default {
             duration: 800
           });
           localStorage.setItem("user", message.uname); // 需要转换为字符串存储
-          this.$router.push("/admin"); //这里也可以使用路由规则名称{name:'/admin'}
+          // this.$router.push({ path: this.$route.query.next }); //这里也可以使用路由规则名称{name:'/admin'}
+          let nextPage = this.$route.query.next || "/admin";
+          this.$router.push({ path: nextPage });
         } else {
           this.$alert(message);
         }

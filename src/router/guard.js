@@ -31,7 +31,7 @@ export default function (to, from, next) {
                 next();
             }
             else {
-                next('/login');
+                next({ name: 'login', query: { next: to.fullPath } });
             }
         }
     })
